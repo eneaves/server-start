@@ -9,7 +9,7 @@ const port = 3000;
 const userRoutes = require("./routes/userRoutes");
 const feedbackRoutes = require("./routes/feedbackRoutes");
 const descriptionRoutes = require("./routes/descriptionRoutes");
-
+const chatRoutes = require("./routes/chatOpenRoutes");
 // express functions
 app.use(cors());
 app.use(bodyParser.json());
@@ -30,6 +30,6 @@ app.listen(port, () => {
 app.use("/users", userRoutes);
 app.use("/feedback", feedbackRoutes);
 app.use("/description", descriptionRoutes);
-
+app.use("/chat", chatRoutes);
 
             

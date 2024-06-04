@@ -44,4 +44,15 @@ async function updateUser(req, res) {
     }
 }
 
-module.exports = { getAllUsers, getUserById, createUser, updateUser };
+async function deleteUser(req, res) { 
+  const { id } = req.params;
+  try {
+    const deleteUser = await UserModel.deteleUser(id);
+    res.json(deleteUser);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
+}
+
+module.exports = { getAllUsers, getUserById, createUser, updateUser, deleteUser };

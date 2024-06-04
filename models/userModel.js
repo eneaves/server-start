@@ -15,8 +15,8 @@ const getUserById = async (id) => {
 
 const createUser = async(user) => {
     try {
-      const query = 'INSERT INTO users (name, email) VALUES ($1, $2) RETURNING *;';
-      const response = await db.query(query, [user.name, user.email]);
+      const query = 'INSERT INTO users (name, email, age) VALUES ($1, $2, $3) RETURNING *;';
+      const response = await db.query(query, [user.name, user.email, user.age]);
       console.log(response);
       return response.rows[0];
     } catch (error) {
@@ -35,6 +35,17 @@ const updateUser = async (id, user) => {
   }
  }
 
+const deteleUser = async (id) => { 
+  try {
+    const query = 'DELETE FROM users WHERE id = $1 RETURNING *;';
+    const { rows } = await db.query(query, [id]);
+    return rows[0];
+  } catch (error) {
+    console.log(error);
+    throw new Error(error);
+  }
+}
+
 
  
-module.exports = { getAllUsers, getUserById , createUser, updateUser};
+module.exports = { getAllUsers, getUserById , createUser, updateUser, deteleUser};
