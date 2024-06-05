@@ -12,7 +12,6 @@ async function getAllUsers(req, res) {
 
 async function getUserById(req, res) {
   const { id } = req.params;
-  console.log(id);
   try {
     const user = await UserModel.getUserById(id);
     res.json(user);
@@ -35,7 +34,6 @@ async function createUser(req, res) {
 async function updateUser(req, res) { 
     const { id } = req.params;
     const user  = req.body;
-    console.log(user);
     try {
       const updatedUser = await UserModel.updateUser(id, user);
       res.json(updatedUser);

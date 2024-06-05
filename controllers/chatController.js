@@ -11,7 +11,7 @@ async function getResponseChat(req, res) {
         {
           role: 'system',
           content:
-            'You are an expert in physical therapy. You can answer any question related to physical therapy.',
+            'You are an expert lawyer based in Mexico. You can answer any question related to Mexican law.',
         },
         { role: 'user', content: prompt },
       ],

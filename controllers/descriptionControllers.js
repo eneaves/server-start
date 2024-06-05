@@ -1,4 +1,5 @@
 const descriptionModel = require('../models/descriptionModel');
+
 async function getDescriptionById(req, res) {
   const { id } = req.params;
   try {
